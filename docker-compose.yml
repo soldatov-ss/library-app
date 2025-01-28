@@ -12,11 +12,7 @@ services:
   web:
     restart: always
     build: ./
-    command: >
-      bash -c "python3 wait_for_postgres.py &&
-                ./manage.py makemigrations &&
-               ./manage.py migrate &&
-               ./manage.py runserver 0.0.0.0:8000"
+    command: bash scripts/start.sh
     volumes:
       - ./:/app
     ports:
